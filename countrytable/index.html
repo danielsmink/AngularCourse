@@ -12,18 +12,18 @@
     <table>
         <thead>
         <tr>
-            <th>Country</th>
-            <th>1960</th>
-            <th>1970</th>
-            <th>1980</th>
-            <th>1990</th>
-            <th>2000</th>
-            <th>2010 population</th>
+            <th data-ng-click="ordering='name'">Country</th>
+            <th data-ng-click="ordering='1960'">1960</th>
+            <th data-ng-click="ordering='1960'">1970</th>
+            <th data-ng-click="ordering='1960'">1980</th>
+            <th data-ng-click="ordering='1960'">1990</th>
+            <th data-ng-click="ordering='1960'">2000</th>
+            <th data-ng-click="ordering='1960'">2010 population</th>
             <th>% growth 1960 - 2010</th>
         </tr>
         </thead>
         <tbody>
-        <tr data-ng-repeat="country in countries | orderBy:name">
+        <tr data-ng-repeat="country in countries | orderBy:ordering">
             <td>{{ country.name }}</td>
             <td>{{ country.1960 | number:0 }}</td>
             <td>{{ country.1970 | number:0 }}</td>
