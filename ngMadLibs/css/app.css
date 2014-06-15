@@ -78,3 +78,7 @@ input {
 .text-output p {
     margin-bottom: 15px;
 }
+
+.text-output .data-binding {
+    text-decoration: underline;
+}
