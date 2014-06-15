@@ -55,6 +55,10 @@ h1 img {
     padding: 25px;
 }
 
+.gender-select {
+    padding: 15px 0px;
+}
+
 .data-inputs {
     border-bottom: 1px solid #000;
 }
@@ -81,4 +85,10 @@ input {
 
 .text-output .data-binding {
     text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-size: 10px;
+    font-style: italic;
 }
