@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngMadLibs</title>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body data-ng-app="madLibs" data-ng-controller="madLibsController">
+<div class="container">
+    <header>
+        <h1>
+            <img src="./images/ng-mad-libs-logo.png" alt="ngMadLibs" title="ngMadLibs" class="logo">
+            Automate This!
+        </h1>
+        <span class="happy-face">
+            <img src="./images/mad-lib-happy-face.png" alt="Happy Face!" title="Happy Face!">
+        </span>
+    </header>
+    <div class="data-inputs">
+        <h2>
+            Provide the following words:
+        </h2>
+        <div class="input-wrapper">
+            <div class="column">
+                <input type="text" data-ng-model="input.femaleName" placeholder="female name" autofocus>
+                <input type="text" data-ng-model="input.jobTitle" placeholder="job title">
+                <input type="text" data-ng-model="input.tediousTask" placeholder="tedious task">
+            </div>
+            <div class="column">
+                <input type="text" data-ng-model="input.dirtyTask" placeholder="dirty task">
+                <input type="text" data-ng-model="input.celebrity" placeholder="celebrity">
+                <input type="text" data-ng-model="input.uselessSkill" placeholder="useless skill">
+            </div>
+            <div class="column">
+                <input type="text" data-ng-model="input.obnoxiuousCelbertity" placeholder="obnoxious celebrity">
+                <input type="text" data-ng-model="input.hugeNumber" placeholder="huge number">
+                <input type="text" data-ng-model="input.adjective" placeholder="adjective">
+            </div>
+        </div>
+    </div>
+    <div class="text-output">
+        <p>
+            {{input.femaleName}} was a {{input.jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated  {{input.tediousTask}} and {{input.dirtyTask}}. So, {{input.femaleName}} met with her life mentor {{input.celebrity}} who told her to learn how to {{input.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{input.uselessSkill}} so she studied programming instead.
+        </p>
+        <p>
+            What a great decision! With her new skills, {{input.femaleName}} built a(n) {{input.adjective}} robot named {{input.obnoxiuousCelbertity}} that not only loved {{input.dirtyTask}} but did it {{input.hugeNumber}} times faster.
+        </p>
+    </div>
+</div>
+<script src="./js/vendor/angular.min.js" type="text/javascript"></script>
+<script src="./js/app.js" type="text/javascript"></script>
+</body>
+</html>
