@@ -19,17 +19,17 @@
                 <div data-ng-show="mealForm.taxrate.$error.integer">Tax rate should contain an integer.</div>
                 <div data-ng-show="mealForm.tippercentage.$error.integer">Tip percentage should contain an integer.</div>
             </div>
-            <form data-ng-submit="validate()" name="mealForm" novalidate>
+            <form data-ng-submit="validate()" name="mealForm" class="meal-form" novalidate>
                 <div>
-                    <label>Base Meal Price: $<input type="number" data-ng-model="meal.baseprice" name="baseprice" integer></label>
+                    <label>Base Meal Price: $</label><input type="number" data-ng-model="meal.baseprice" name="baseprice" min="0" required smart-float>
                 </div>
                 <div>
-                    <label>Tax Rate: %<input type="number" data-ng-model="meal.taxrate" name="taxrate" integer></label>
+                    <label>Tax Rate: %</label><input type="number" data-ng-model="meal.taxrate" name="taxrate" min="0" required smart-float>
                 </div>
                 <div>
-                    <label>Tip Percentage: %<input type="number" data-ng-model="meal.tippercentage" name="tippercentage" integer></label>
+                    <label>Tip Percentage: %</label><input type="number" data-ng-model="meal.tippercentage" name="tippercentage" min="0" required smart-float>
                 </div>
-                <div>
+                <div class="form-buttons">
                     <input type="submit" value="Submit"> <button data-ng-click="cancelMeal()">Cancel</button>
                 </div>
             </form>

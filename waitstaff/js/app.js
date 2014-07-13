@@ -1,4 +1,5 @@
-var INTEGER_REGEXP = /^\-?\d+$/;
+var INTEGER_REGEXP = /^\-?\d+$/,
+    FLOAT_REGEXP = /^\-?\d+((\.|\,)\d+)?$/;
 
 angular.module('waitstaff', [])
     .constant('VERSION', '1.0')
@@ -18,7 +19,7 @@ angular.module('waitstaff', [])
         $scope.mealCount = 0;
         $scope.avgTip = 0;
 
-        //Form validation
+        //Form validation and value handling
         $scope.validate = function() {
             //Form is valid so we calculate all the values for the customer charge
             if($scope.mealForm.$valid) {
@@ -71,6 +72,23 @@ angular.module('waitstaff', [])
                     } else {
                         // it is invalid, return undefined (no model update)
                         ctrl.$setValidity('integer', false);
+                        return undefined;
+                    }
+                });
+            }
+        };
+    })
+    // Directive to validate floats shamelessly copied from the AnuglarJS documentation
+    .directive('smartFloat', function() {
+        return {
+            require: 'ngModel',
+            link: function(scope, elm, attrs, ctrl) {
+                ctrl.$parsers.unshift(function(viewValue) {
+                    if (FLOAT_REGEXP.test(viewValue)) {
+                        ctrl.$setValidity('float', true);
+                        return parseFloat(viewValue.replace(',', '.'));
+                    } else {
+                        ctrl.$setValidity('float', false);
                         return undefined;
                     }
                 });
