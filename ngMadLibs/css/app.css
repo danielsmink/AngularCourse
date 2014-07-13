@@ -87,6 +87,17 @@ input {
     text-decoration: underline;
 }
 
+.form-button {
+    border-top: 1px solid;
+    margin-top: 15px;
+    padding: 5px;
+    text-align: right;
+}
+
+.error-message {
+    color: red;
+}
+
 footer {
     text-align: center;
     font-size: 10px;
