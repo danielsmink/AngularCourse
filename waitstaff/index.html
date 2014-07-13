@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waitstaff Calculator</title>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body data-ng-app="waitstaff" data-ng-controller="waitstaffController">
+<div class="container">
+    <header>
+        <h1>Waitstaff Calculator</h1>
+    </header>
+    <div class="app-container">
+        <div class="column left">
+            <h2>Enter the Meal Details</h2>
+            <div class="error-message" data-ng-show="errorMessage">
+                {{errorMessage}}
+                <div data-ng-show="mealForm.baseprice.$error.integer">Base meal price should contain an integer.</div>
+                <div data-ng-show="mealForm.taxrate.$error.integer">Tax rate should contain an integer.</div>
+                <div data-ng-show="mealForm.tippercentage.$error.integer">Tip percentage should contain an integer.</div>
+            </div>
+            <form data-ng-submit="validate()" name="mealForm" novalidate>
+                <div>
+                    <label>Base Meal Price: $<input type="number" data-ng-model="meal.baseprice" name="baseprice" integer></label>
+                </div>
+                <div>
+                    <label>Tax Rate: %<input type="number" data-ng-model="meal.taxrate" name="taxrate" integer></label>
+                </div>
+                <div>
+                    <label>Tip Percentage: %<input type="number" data-ng-model="meal.tippercentage" name="tippercentage" integer></label>
+                </div>
+                <div>
+                    <input type="submit" value="Submit"> <button data-ng-click="cancelMeal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="column">
+            <div class="sub charges">
+                <h3>Customer Charges</h3>
+                <div>
+                    <span class="label">Subtotal:&nbsp;</span><span class="value">{{charge-subtotal | currency}}</span>
+                </div>
+                <div>
+                    <span class="label">Tip:&nbsp;</span><span class="value">{{charge-tip | currency}}</span>
+                </div>
+                <div class="charge-total">
+                    <span class="label">Total:&nbsp;</span><span class="value">{{charge-total | currency}}</span>
+                </div>
+            </div>
+            <div class="sub earnings">
+                <h3>My Earnings Info</h3>
+                <div>
+                    <span class="label">Tip total:&nbsp;</span><span class="value">{{tip-total | currency}}</span>
+                </div>
+                <div>
+                    <span class="label">Meal count:&nbsp;</span><span class="value">{{meal-count}}</span>
+                </div>
+                <div>
+                    <span class="label">Average Tip Per Meal:&nbsp;</span><span class="value">{{avg-tip | currency}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reset-button">
+        <button data-ng-click="resetApp()">Reset</button>
+    </div>
+    <footer>
+        Version: {{version}}
+    </footer>
+</div>
+<script src="./js/vendor/angular.min.js" type="text/javascript"></script>
+<script src="./js/app.js" type="text/javascript"></script>
+</body>
+</html>

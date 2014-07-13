@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+
+* {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 760px;
+}
+
+.app-container {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 15px;
+}
+
+.column {
+    flex: 1;
+}
+
+.left {
+    border: 1px solid #000;
+    flex-grow: 2;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.sub {
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+h2, h3 {
+    border-bottom: 1px solid #000;
+}
+
+.charges .label {
+    display: inline-block;
+    text-align: right;
+    width: 75px;
+}
+
+.charge-total {
+    border-top: 1px solid #000;
+}
+
+.earnings .label {
+    display: inline-block;
+    text-align: right;
+    width: 175px;
+}
+
+.reset-button {
+    text-align: right;
+}
+
+.error {
+    color: red;
+}
