@@ -51,7 +51,13 @@ h1 img {
     width: 30%;
 }
 
-.container > div {
+.inner-container {
+    height: 390px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-container > div {
     padding: 25px;
 }
 
@@ -61,6 +67,7 @@ h1 img {
 
 .data-inputs {
     border-bottom: 1px solid #000;
+    position: absolute;
 }
 
 .input-wrapper {
@@ -77,6 +84,10 @@ h1 img {
 input {
     margin-bottom: 5px;
     padding: 5px;
+}
+
+.text-output {
+    position: absolute;
 }
 
 .text-output p {
@@ -103,3 +114,197 @@ footer {
     font-size: 10px;
     font-style: italic;
 }
+
+/**
+* Animations
+*/
+
+
+@keyframes fadeInUpBig {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 2000px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+@-webkit-keyframes fadeInUpBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 2000px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+    }
+}
+
+@keyframes fadeOutUpBig {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -2000px, 0);
+    }
+}
+@-webkit-keyframes fadeOutUpBig {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -2000px, 0);
+    }
+}
+
+@keyframes fadeInDownBig {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -2000px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+@-webkit-keyframes fadeInDownBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -2000px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+    }
+}
+
+@keyframes fadeOutDownBig {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 2000px, 0);
+    }
+}
+@-webkit-keyframes fadeOutDownBig {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 2000px, 0);
+    }
+}
+
+.data-inputs.ng-hide-add-stagger,
+.data-inputs.ng-hide-remove-stagger,
+.text-output.ng-hide-add-stagger,
+.text-output.ng-hide-remove-stagger {
+    -webkit-animation-delay:0.2s;
+    animation-delay:0.2s;
+
+    -webkit-animation-duration:0;
+    animation-duration:0;
+}
+
+.data-inputs.ng-hide-remove {
+    -webkit-animation: fadeInDownBig 1s;
+    animation: fadeInDownBig 1s;
+}
+.data-inputs.ng-hide-add {
+    -webkit-animation: fadeOutUpBig 1s;
+    animation: fadeOutUpBig 1s;
+}
+
+.text-output.ng-hide-remove {
+    -webkit-animation: fadeInUpBig 1s;
+    animation: fadeInUpBig 1s;
+}
+.text-output.ng-hide-add {
+    -webkit-animation: fadeOutDownBig 1s;
+    animation: fadeOutDownBig 1s;
+}
+
+/**
+ * Chunky 3D Web Buttons
+ *
+ * Inspiration was taken from:
+ * - http://www.premiumpixels.com/freebies/chunky-3d-webbuttons-psd/
+ */
+
+/**
+ * Shadow
+ */
+a.button::before, button::before, input[type=submit]::before {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-box-shadow: #959595 0 2px 5px;
+    -moz-box-shadow: #959595 0 2px 5px;
+    border-radius: 3px;
+    box-shadow: #959595 0 2px 5px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    padding: 2px 0 0;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+
+a.button:active::before, button:active::before, input[type=submit]:active::before { padding: 1px 0 0; }
+
+/**
+ * Grey
+ */
+a.button, button, input[type=submit] {
+    -moz-box-shadow: inset 0 0 0 1px #63ad0d;
+    -webkit-box-shadow: inset 0 0 0 1px #63ad0d;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background: #eee;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#eee), to(#e2e2e2));
+    background: -moz-linear-gradient(#eee, #e2e2e2);
+    background: linear-gradient(#eee, #e2e2e2);
+    border: solid 1px #d0d0d0;
+    border-bottom: solid 3px #b2b1b1;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px #f5f5f5;
+    color: #555;
+    display: inline-block;
+    font: bold 12px Arial, Helvetica, Clean, sans-serif;
+    margin: 0 25px 25px 0;
+    padding: 10px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fafafa; }
+
+a.button:hover, button:hover, input[type=submit]:hover {
+    background: #e4e4e4;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e4e4e4), to(#ededed));
+    background: -moz-linear-gradient(#e4e4e4, #ededed);
+    background: linear-gradient(#e4e4e4, #ededed);
+    border: solid 1px #c2c2c2;
+    border-bottom: solid 3px #b2b1b1;
+    box-shadow: inset 0 0 0 1px #efefef; }
+
+a.button:active, button:active ,input[type=submit]:active {
+    background: #dfdfdf;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#dfdfdf), to(#e3e3e3));
+    background: -moz-linear-gradient(#dfdfdf, #e3e3e3);
+    background: linear-gradient(#dfdfdf, #e3e3e3);
+    border: solid 1px #959595;
+    box-shadow: inset 0 10px 15px 0 #c4c4c4;
+    top:2px;}

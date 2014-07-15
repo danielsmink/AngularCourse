@@ -1,9 +1,12 @@
 var INTEGER_REGEXP = /^\-?\d+$/;
 
-angular.module('madLibs', [])
-    .constant('VERSION', '1.2')
-    .run(function(VERSION, $rootScope){
+angular.module('madLibs', ['ngAnimate'])
+    .constant('VERSION', '1.3')
+    .run(function(VERSION, $rootScope, $templateCache){
         $rootScope.version = VERSION;
+        $rootScope.$on('$viewContentLoaded', function() {
+            $templateCache.removeAll();
+        });
     })
     .controller('madLibsController', function($scope){
 

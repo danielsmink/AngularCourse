@@ -16,51 +16,53 @@
             <img src="./images/mad-lib-happy-face.png" alt="Happy Face!" title="Happy Face!">
         </span>
     </header>
-    <div class="data-inputs" data-ng-hide="formValid">
-        <h2>
-            Provide the following words:
-        </h2>
-        <div class="error-message" data-ng-show="errorMessage">
-            {{errorMessage}}
-            <div ng-show="myForm.hugeNumber.$error.integer">Huge number should contain an integer.</div>
+    <div class="inner-container">
+        <div class="data-inputs" data-ng-hide="formValid">
+            <h2>
+                Provide the following words:
+            </h2>
+            <div class="error-message" data-ng-show="errorMessage">
+                {{errorMessage}}
+                <div ng-show="myForm.hugeNumber.$error.integer">Huge number should contain an integer.</div>
+            </div>
+            <form data-ng-submit="validate()" name="myForm" novalidate>
+                <div class="gender-select">
+                        <em>Select your gender:</em><br>
+                        <label for="female"><input type="radio" data-ng-model="input.gender" name="gender" value="female" id="female" required> Female</label><br>
+                        <label for="male"><input type="radio" data-ng-model="input.gender" name="gender" value="male" id="male" required> Male</label>
+                </div>
+                <div class="input-wrapper">
+                    <div class="column">
+                        <input type="text" data-ng-model="input.femaleName" name="femaleName" placeholder="female name" autofocus required>
+                        <input type="text" data-ng-model="input.jobTitle" name="jobTitle"  placeholder="job title" required>
+                        <input type="text" data-ng-model="input.tediousTask" name="tediousTask"  placeholder="tedious task" required>
+                    </div>
+                    <div class="column">
+                        <input type="text" data-ng-model="input.dirtyTask" name="dirtyTask"  placeholder="dirty task" required>
+                        <input type="text" data-ng-model="input.celebrity" name="celebrity"  placeholder="celebrity" required>
+                        <input type="text" data-ng-model="input.uselessSkill" name="uselessSkill" placeholder="useless skill" required>
+                    </div>
+                    <div class="column">
+                        <input type="text" data-ng-model="input.obnoxiuousCelbertity" name="obnoxiuousCelbertity" placeholder="obnoxious celebrity" required>
+                        <input type="number" data-ng-model="input.hugeNumber" name="hugeNumber" placeholder="huge number" integer>
+                        <input type="text" data-ng-model="input.adjective" name="adjective" placeholder="adjective" required>
+                    </div>
+                </div>
+                <div class="form-button">
+                    <input type="submit" value="Generate My Mad Lib"> <button data-ng-click="formValid = true">Tester</button>
+                </div>
+            </form>
         </div>
-        <form data-ng-submit="validate()" name="myForm" novalidate>
-            <div class="gender-select">
-                    <em>Select your gender:</em><br>
-                    <label for="female"><input type="radio" data-ng-model="input.gender" name="gender" value="female" id="female" required> Female</label><br>
-                    <label for="male"><input type="radio" data-ng-model="input.gender" name="gender" value="male" id="male" required> Male</label>
-            </div>
-            <div class="input-wrapper">
-                <div class="column">
-                    <input type="text" data-ng-model="input.femaleName" name="femaleName" placeholder="female name" autofocus required>
-                    <input type="text" data-ng-model="input.jobTitle" name="jobTitle"  placeholder="job title" required>
-                    <input type="text" data-ng-model="input.tediousTask" name="tediousTask"  placeholder="tedious task" required>
-                </div>
-                <div class="column">
-                    <input type="text" data-ng-model="input.dirtyTask" name="dirtyTask"  placeholder="dirty task" required>
-                    <input type="text" data-ng-model="input.celebrity" name="celebrity"  placeholder="celebrity" required>
-                    <input type="text" data-ng-model="input.uselessSkill" name="uselessSkill" placeholder="useless skill" required>
-                </div>
-                <div class="column">
-                    <input type="text" data-ng-model="input.obnoxiuousCelbertity" name="obnoxiuousCelbertity" placeholder="obnoxious celebrity" required>
-                    <input type="number" data-ng-model="input.hugeNumber" name="hugeNumber" placeholder="huge number" integer>
-                    <input type="text" data-ng-model="input.adjective" name="adjective" placeholder="adjective" required>
-                </div>
-            </div>
+        <div class="text-output" data-ng-show="formValid">
+            <p>
+                <span class="data-binding">{{input.femaleName}}</span> was a <span class="data-binding">{{input.jobTitle}}</span> who loved technology. Although {{ (input.gender == 'female' ) ? 'she' : 'he' }} loved parts of {{ (input.gender == 'female' ) ? 'her' : 'his' }} job, {{ (input.gender == 'female' ) ? 'she' : 'he' }} absolutely hated  <span class="data-binding">{{input.tediousTask}}</span> and <span class="data-binding">{{input.dirtyTask}}</span>. So, <span class="data-binding">{{input.femaleName}}</span> met with {{ (input.gender == 'female' ) ? 'her' : 'his' }} life mentor <span class="data-binding">{{input.celebrity}}</span> who told {{ (input.gender == 'female' ) ? 'her' : 'him' }} to learn how to <span class="data-binding">{{input.uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="data-binding">{{input.uselessSkill}}</span> so {{ (input.gender == 'female' ) ? 'she' : 'he' }} studied programming instead.
+            </p>
+            <p>
+                What a great decision! With {{ (input.gender == 'female' ) ? 'her' : 'his' }} new skills, <span class="data-binding">{{input.femaleName}}</span> built a(n) <span class="data-binding">{{input.adjective}}</span> robot named <span class="data-binding">{{input.obnoxiuousCelbertity}}</span> that not only loved <span class="data-binding">{{input.dirtyTask}}</span> but did it <span class="data-binding">{{input.hugeNumber}}</span> times faster.
+            </p>
             <div class="form-button">
-                <input type="submit" value="Generate My Mad Lib">
+                <button data-ng-click="resetForm()">Start Over</button>
             </div>
-        </form>
-    </div>
-    <div class="text-output" data-ng-show="formValid">
-        <p>
-            <span class="data-binding">{{input.femaleName}}</span> was a <span class="data-binding">{{input.jobTitle}}</span> who loved technology. Although {{ (input.gender == 'female' ) ? 'she' : 'he' }} loved parts of {{ (input.gender == 'female' ) ? 'her' : 'his' }} job, {{ (input.gender == 'female' ) ? 'she' : 'he' }} absolutely hated  <span class="data-binding">{{input.tediousTask}}</span> and <span class="data-binding">{{input.dirtyTask}}</span>. So, <span class="data-binding">{{input.femaleName}}</span> met with {{ (input.gender == 'female' ) ? 'her' : 'his' }} life mentor <span class="data-binding">{{input.celebrity}}</span> who told {{ (input.gender == 'female' ) ? 'her' : 'him' }} to learn how to <span class="data-binding">{{input.uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="data-binding">{{input.uselessSkill}}</span> so {{ (input.gender == 'female' ) ? 'she' : 'he' }} studied programming instead.
-        </p>
-        <p>
-            What a great decision! With {{ (input.gender == 'female' ) ? 'her' : 'his' }} new skills, <span class="data-binding">{{input.femaleName}}</span> built a(n) <span class="data-binding">{{input.adjective}}</span> robot named <span class="data-binding">{{input.obnoxiuousCelbertity}}</span> that not only loved <span class="data-binding">{{input.dirtyTask}}</span> but did it <span class="data-binding">{{input.hugeNumber}}</span> times faster.
-        </p>
-        <div class="form-button">
-            <button data-ng-click="resetForm()">Start Over</button>
         </div>
     </div>
     <footer>
@@ -68,6 +70,7 @@
     </footer>
 </div>
 <script src="./js/vendor/angular.min.js" type="text/javascript"></script>
+<script src="./js/vendor/angular-animate.min.js" type="text/javascript"></script>
 <script src="./js/app.js" type="text/javascript"></script>
 </body>
 </html>
