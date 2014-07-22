@@ -5,13 +5,13 @@
  */
 
 angular.module('instagramSearcher')
-  .controller('InstagramCtrl', function ($scope, InstagramSvc) {
+  .controller('InstagramCtrl', function ($scope, $timeout, InstagramSvc) {
 
     // Init default values
     $scope.images = null;
     $scope.message = null;
     $scope.tag = null;
-
+    $scope.results = [];
 
     //Form validation
     var validate = function() {
@@ -40,10 +40,12 @@ angular.module('instagramSearcher')
           .success(function (results) {
             // Check if we had a successful call to the instagram API
             if(results.meta.code === 200) {
-              console.log(results);
               // Check if we actually found some images
               if (results.data.length > 0) {
-                $scope.results = results.data;
+                // Fill results with a timeout so the animation is triggered
+                $timeout(function() {
+                  $scope.results = results.data;
+                });
                 $scope.message = 'We found ' + results.data.length + ' results tagged with "' + tag + '"';
               } else {
                 $scope.message = 'Sorry, your search returned no results.';

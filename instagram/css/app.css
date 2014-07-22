@@ -35,17 +35,21 @@ h1 {
 
 .images {
     text-align: center;
+    list-style:none;
+    margin:0;
 }
 
 .images li {
     display: inline-block;
+    margin: 5px;
+    text-align: center;
+    height: 250px;
+    width: 250px;
 }
 
 .images img {
     height: 250px;
-    margin: 5px;
 }
-
 
 footer {
     font-size: 13px;
@@ -80,6 +84,58 @@ input:hover, textarea:hover,
 input:focus, textarea:focus {
     border-color: #C9C9C9;
 }
+
+/**
+* Animations
+*/
+.user-message.ng-enter {
+    -webkit-transition:0.5s linear all;
+    transition:0.5s linear all;
+
+    opacity:1;
+}
+.user-message.ng-enter.ng-enter-active{
+    opacity:0;
+}
+
+.repeat-animation {
+    position:relative;
+    list-style:none;
+    box-sizing:border-box;
+}
+
+.repeat-animation.ng-enter-stagger,
+.repeat-animation.ng-leave-stagger,
+.repeat-animation.ng-move-stagger {
+    /* 100ms will be applied between each sucessive enter operation */
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.repeat-animation.ng-enter,
+.repeat-animation.ng-leave,
+.repeat-animation.ng-move {
+    -webkit-transition: 0.5s ease-out all;
+    transition: 0.5s ease-out all;
+}
+
+.repeat-animation.ng-leave.ng-leave-active,
+.repeat-animation.ng-enter,
+.repeat-animation.ng-move {
+    -webkit-transition: 0.5s ease-out all;
+    transition: 0.5s ease-out all;
+
+    left: -10px;
+    opacity: 0;
+}
+
+.repeat-animation.ng-leave,
+.repeat-animation.ng-move.ng-move-active,
+.repeat-animation.ng-enter.ng-enter-active {
+    left: 0px;
+    opacity: 1;
+}
+
 
 /**
  * Chunky 3D Web Buttons
