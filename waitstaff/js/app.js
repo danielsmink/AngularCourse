@@ -3,10 +3,27 @@
 var INTEGER_REGEXP = /^\-?\d+$/,
   FLOAT_REGEXP = /^\-?\d+((\.|\,)\d+)?$/;
 
-angular.module('waitstaff', [])
+angular.module('waitstaff', ['ngRoute'])
   .constant('VERSION', '1.1')
   .run(function(VERSION, $rootScope){
     $rootScope.version = VERSION;
+  })
+  .config(function($routeProvider){
+    $routeProvider.when('/', {
+      templateUrl : './home.html'
+    })
+    .when('/new-meal', {
+      templateUrl : './new-meal.html'
+    })
+    .when('/my-earnings', {
+      templateUrl : './my-earnings.html'
+    })
+    .when('/error', {
+      template : '<p>Error Page Not Found</p>'
+    })
+    .otherwise({
+      redirectTo : '/error'
+    });
   })
   .controller('waitstaffController', function($scope){
 
