@@ -104,6 +104,23 @@ input:focus, textarea:focus {
     box-sizing:border-box;
 }
 
+.images.ng-leave.ng-leave-active,
+.images.ng-enter,
+.images-ng-move {
+    -webkit-transition: 0.5s ease-out all;
+    transition: 0.5s ease-out all;
+
+    left: -10px;
+    opacity: 0;
+}
+
+.images.ng-leave,
+.images.ng-move.ng-move-active,
+.images.ng-enter.ng-enter-active {
+    left: 0px;
+    opacity: 1;
+}
+
 .repeat-animation.ng-enter-stagger,
 .repeat-animation.ng-leave-stagger,
 .repeat-animation.ng-move-stagger {
