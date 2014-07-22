@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Shorkan's Instagram Searcher</title>
+    <link rel="stylesheet" href="./css/app.css">
 </head>
 <body data-ng-controller='InstagramCtrl'>
 <header>
-    <h1>Shorkan's Instagram Searcher</h1>
+    <h1>Shorkan's</h1>
+    <h2 id="logo">
+        Instagram Searcher
+    </h2>
 </header>
-<h3 data-ng-if="message">
-    {{message}}
-</h3>
 <main>
     <form data-ng-submit="findImages()" name="searchForm" novalidate>
         <label for="tag">Tag to search on:</label>
         <input id="tag" type="search" data-ng-model="tag" placeholder="kittens" required>
         <input type="submit" value="Search">
     </form>
+    <h3 class="user-message" data-ng-if="message">
+        {{message}}
+    </h3>
     <ul class="images" data-ng-if="results">
         <li data-ng-repeat='result in results'>
-            <a href="{{result.link}}" target="_blank">
+            <a href="{{result.link}}" target="_blank" title="{{result.caption.text}}">
                 <img data-ng-src="{{result.images.low_resolution.url}}" alt="{{result.caption.text}}" title="{{result.caption.text}}" />
             </a>
         </li>
     </ul>
 </main>
 <footer>
-    Version: {{version}}
+    Version: {{version}} &copy; Dani&euml;l Smink 2014
 </footer>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-animate.min.js"></script>

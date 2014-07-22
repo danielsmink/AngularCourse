@@ -40,6 +40,7 @@ angular.module('instagramSearcher')
           .success(function (results) {
             // Check if we had a successful call to the instagram API
             if(results.meta.code === 200) {
+              console.log(results);
               // Check if we actually found some images
               if (results.data.length > 0) {
                 $scope.results = results.data;
