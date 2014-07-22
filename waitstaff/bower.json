@@ -1,0 +1,24 @@
+{
+  "name": "open-weather-map",
+  "version": "0.0.0",
+  "homepage": "https://github.com/danielsmink/AngularCourse",
+  "authors": [
+    "Daniël Smink <smink83@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.20",
+    "angular-route": "~1.2.20"
+  }
+}
