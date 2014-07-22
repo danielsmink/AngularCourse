@@ -9,16 +9,18 @@ angular.module('instagramSearcher')
     return {
       fetchImages: function (tag) {
 
-        // Set config for the JSONP call
-        var config = {
+        // return Promise
+        return $http(
+          {
+            method: 'JSONP',
+            url: 'https://api.instagram.com/v1/tags/' + tag + '/media/recent',
+            // Set config for the JSONP call
             'params': {
               'callback': 'JSON_CALLBACK',
               'client_id': 'a90279b288d5455d8230b396492d1768'
             }
-          };
-
-        // return Promise
-        return $http.jsonp('https://api.instagram.com/v1/tags/' + tag + '/media/recent', config);
+          }
+        );
       }
     };
   });
