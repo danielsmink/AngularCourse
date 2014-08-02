@@ -9,8 +9,13 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     reload = browserSync.reload;
 
+gulp.task('css', function () {
+  gulp.src('./css/**/*.css')
+    .pipe(reload({stream: true}));
+});
+
 gulp.task('js', function () {
-  gulp.src('./js/app.js')
+  gulp.src('./js/**/*.js')
     .pipe(sourcemaps.init())
     .on('error', handleError)
     .pipe(concat('app.js'))
@@ -43,6 +48,7 @@ gulp.task('watch', function () {
   });
   gulp.watch(['./js/**/*.js'], ['lint']);
   gulp.watch(['./js/**/*.js'], ['js']);
+  gulp.watch(['./css/**/*.css'], ['css']);
 });
 
 function handleError(err) {

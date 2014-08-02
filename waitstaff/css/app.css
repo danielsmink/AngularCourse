@@ -12,16 +12,6 @@
     width: 760px;
 }
 
-.app-container {
-    display: flex;
-    flex-flow: row wrap;
-    margin-top: 15px;
-}
-
-.column {
-    flex: 1;
-}
-
 .left {
     border: 1px solid #000;
     flex-grow: 2;
@@ -43,10 +33,28 @@
 
 .sub {
     border: 1px solid #000;
+    margin: 10px auto;
+    width: 560px;
+}
+
+.sub p {
+    padding: 10px;
+}
+
+.sub div:nth-child(2) {
+    padding-top: 10px;
+}
+
+.sub div:last-child {
+    padding-bottom: 10px;
 }
 
 .sub:first-child {
     margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
 }
 
 h2, h3 {
@@ -74,11 +82,21 @@ h2, h3 {
 
 .reset-button {
     margin-top: 20px;
-    text-align: right;
+    text-align: center;
 }
 
 .error-message {
     color: red;
+}
+
+nav {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
 }
 
 label {

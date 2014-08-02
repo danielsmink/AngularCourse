@@ -1,15 +1,17 @@
-<div class="sub earnings">
-    <h3>My Earnings Info</h3>
-    <div>
-        <span class="label">Tip total:&nbsp;</span><span class="value">{{tipTotal | currency}}</span>
+<div data-ng-controller="earningsController">
+    <div class="sub earnings">
+        <h2>My earnings for this shift</h2>
+        <div>
+            <span class="label">Tip total:&nbsp;</span><span class="value">{{earnings.tipTotal | currency}}</span>
+        </div>
+        <div>
+            <span class="label">Meal count:&nbsp;</span><span class="value">{{earnings.mealCount}}</span>
+        </div>
+        <div>
+            <span class="label">Average Tip Per Meal:&nbsp;</span><span class="value">{{earnings.avgTip | currency}}</span>
+        </div>
     </div>
-    <div>
-        <span class="label">Meal count:&nbsp;</span><span class="value">{{mealCount}}</span>
+    <div class="reset-button">
+        <button data-ng-click="resetApp()">Reset</button>
     </div>
-    <div>
-        <span class="label">Average Tip Per Meal:&nbsp;</span><span class="value">{{avgTip | currency}}</span>
-    </div>
-</div>
-<div class="reset-button">
-    <button data-ng-click="resetApp()">Reset</button>
 </div>
