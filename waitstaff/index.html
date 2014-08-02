@@ -5,7 +5,7 @@
     <title>Waitstaff Calculator</title>
     <link rel="stylesheet" href="./css/app.css">
 </head>
-<body data-ng-app="waitstaff">
+<body data-ng-app="waitstaff" data-ng-class="{loading: isLoading}">
 <div class="container">
     <header>
         <h1>Waitstaff Calculator</h1>
@@ -15,14 +15,17 @@
         <a href="#/new-meal">New meal</a> |
         <a href="#/my-earnings">My earnings</a>
     </nav>
-    <div class="app-container" data-ng-view>
+    <div class="animate-view-container">
+        <div class="animate-view app-container" data-ng-view>
+        </div>
+        <footer>
+            Version: {{version}}
+        </footer>
     </div>
-    <footer>
-        Version: {{version}}
-    </footer>
 </div>
 <script type="text/javascript" src="./dist/vendor/angular/angular.min.js"></script>
 <script type="text/javascript" src="./dist/vendor/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="./dist/vendor/angular-animate/angular-animate.min.js"></script>
 <script src="./dist/app.js" type="text/javascript"></script>
 </body>
 </html>

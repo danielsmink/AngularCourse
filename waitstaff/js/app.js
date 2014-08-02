@@ -3,12 +3,23 @@
 /**
  * Waitstaff application
  */
-angular.module('waitstaff', ['ngRoute'])
-  .constant('VERSION', '1.1')
-  .run(function(VERSION, $rootScope, $templateCache){
+angular.module('waitstaff', ['ngRoute', 'ngAnimate'])
+  .constant('VERSION', '1.2')
+  .run(function(VERSION, $location, $timeout, $rootScope, $templateCache){
     $rootScope.version = VERSION;
     $rootScope.$on('$viewContentLoaded', function() {
       $templateCache.removeAll();
+    });
+    $rootScope.$on('$routeChangeError', function() {
+      $location.path('/error');
+    });
+    $rootScope.$on('$routeChangeStart', function() {
+      $rootScope.isLoading = true;
+    });
+    $rootScope.$on('$routeChangeSuccess', function() {
+      $timeout(function() {
+        $rootScope.isLoading = false;
+      }, 1000);
     });
   })
   // Configure routes
