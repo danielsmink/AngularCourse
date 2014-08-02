@@ -24,7 +24,7 @@
     <h3 class="user-message" data-ng-if="message">
         {{message}}
     </h3>
-    <ul class="images" data-ng-if="results.length > 0">
+    <ul class="images">
         <li data-ng-repeat="result in results" class="repeat-animation">
             <a href="{{result.link}}" target="_blank" title="{{result.caption.text}}">
                 <img data-ng-src="{{result.images.low_resolution.url}}" alt="{{result.caption.text}}" title="{{result.caption.text}}" />
