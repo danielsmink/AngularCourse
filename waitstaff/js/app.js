@@ -10,13 +10,13 @@ angular.module('waitstaff', ['ngRoute'])
   })
   .config(function($routeProvider){
     $routeProvider.when('/', {
-      templateUrl : './home.html'
+      templateUrl : './js/waitstaff/home.html'
     })
     .when('/new-meal', {
-      templateUrl : './new-meal.html'
+      templateUrl : './js/waitstaff-meal/new-meal.html'
     })
     .when('/my-earnings', {
-      templateUrl : './my-earnings.html'
+      templateUrl : './js/waitstaff-earnings/my-earnings.html'
     })
     .when('/error', {
       template : '<p>Error Page Not Found</p>'

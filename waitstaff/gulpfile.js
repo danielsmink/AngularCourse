@@ -26,7 +26,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('lint', function() {
-  gulp.src('./js/app.js')
+  gulp.src('./js/**/*.js')
     .on('error', handleError)
     .pipe(jshint('./js/.jshintrc'))
     .on('error', handleError)
@@ -38,12 +38,11 @@ gulp.task('lint', function() {
 
 gulp.task('watch', function () {
   browserSync({
-    server: {
-      baseDir: '/Users/Shorkan/Documents/AngularCourse/waitstaff/'
-    }
+    proxy: 'localhost:8080',
+    port: 9000
   });
-  gulp.watch(['./js/app.js'], ['lint']);
-  gulp.watch(['./js/app.js'], ['js']);
+  gulp.watch(['./js/**/*.js'], ['lint']);
+  gulp.watch(['./js/**/*.js'], ['js']);
 });
 
 function handleError(err) {
