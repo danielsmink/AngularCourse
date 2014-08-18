@@ -4,5 +4,9 @@
 
 (function() {
   angular
-    .module('loginForm', []);
+    .module('loginForm', [])
+    .constant('VERSION', '1.0')
+    .run(function(VERSION, $rootScope) {
+      $rootScope.version = VERSION;
+    });
 })();

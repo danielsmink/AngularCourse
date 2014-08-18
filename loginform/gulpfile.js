@@ -15,13 +15,13 @@ var gulp = require('gulp'),
   deploy = require('gulp-gh-pages'),
   karma = require('gulp-karma'),
   paths = {
-    scripts: ['./app/**/*.js', '!./app/**/*Spec.js'],
+    scripts: ['./app/**/*.js', '!./app/**/*Spec.js', '!./app/**/bower_components/**'],
     jsCompiled: 'public/js',
     scss: './app/assets/scss/**/*.scss',
     scssDir: './app/assets/scss',
     css: './public/css',
     indexFile: './app/index.html',
-    templates: ['./app/**/*.html', '!./app/index.html']
+    templates: ['./app/**/*.html', '!./app/index.html', '!./app/**/bower_components/**']
   };
 
 require('gulp-help')(gulp);

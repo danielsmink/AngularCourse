@@ -7,6 +7,7 @@
     .module('loginForm')
     .directive('optIn', optIn);
 
+  /* @ngInject */
   function optIn () {
     var directive = {
       transclude: true,
