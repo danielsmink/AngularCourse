@@ -1,3 +1,5 @@
 .idea/*
 waitstaff/node_modules
-megavideo/node_modules
+megavideo/node_moduleswaitstaff/node_modules
+loginform/node_modules
+loginform/.sass-cache
