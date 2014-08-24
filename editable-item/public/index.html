@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="en" data-ng-app="editableItem">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <title>Editable item directive by Shorkan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="row">
+    <h1>Editable item directive</h1>
+</header>
+<div class="row">
+    <div make-editable>
+        <p>Content that will become editable when the directive rendered.</p>
+    </div>
+    <div make-editable>
+        <p>Content that will become editable when the directive rendered.</p>
+    </div>
+</div>
+<footer class="row">
+    <div class="small-12 columns">
+        Version: {{version}}
+    </div>
+</footer>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+<script src="./js/editable-item.min.js"></script>
+</body>
+</html>
