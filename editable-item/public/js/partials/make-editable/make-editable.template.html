@@ -1,0 +1,13 @@
+<button
+    data-ng-hide="editItem.editable"
+    data-ng-click="editItem.edit()">
+    Edit
+</button>
+<button
+    data-ng-if="editItem.editable"
+    data-ng-click="editItem.save()">
+    Save
+</button>
+<div class="edit-me"
+     data-ng-class="{editable: editItem.editable}"
+     data-ng-transclude></div>
