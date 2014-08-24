@@ -1,0 +1,15 @@
+{
+  "name": "megavideo",
+  "version": "0.1.0",
+  "description": "megaVideo directive",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^1.3.6",
+    "gulp": "^3.8.7"
+  }
+}
