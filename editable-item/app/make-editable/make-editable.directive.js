@@ -11,7 +11,7 @@
   function makeEditable () {
     var directive = {
       transclude: true,
-      templateUrl: './js/partials/make-editable/make-editable.template.html',
+      templateUrl: 'make-editable/make-editable.template.html',
       restrict: 'A',
       scope: true,
       link: function(scope, element) {
