@@ -11,7 +11,7 @@
   function optIn () {
     var directive = {
       transclude: true,
-      templateUrl: './js/partials/optin/optin.template.html',
+      templateUrl: 'optin/optin.template.html',
       restrict: 'E'
     };
 
